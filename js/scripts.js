@@ -56,5 +56,6 @@ function weather() {
 
     }
 }
-
-weather();
+window.onload = function() {
+    weather();
+};
