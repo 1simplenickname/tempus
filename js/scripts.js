@@ -19,7 +19,7 @@ function weather() {
 							 "longitude is " + longitude + "°";
 
         function generateURL() {
-            generated_url ="https://crossorigin.me/" + url + apiKey + "/" +
+            generated_url ="https://cors-escape.herokuapp.com/" + url + apiKey + "/" +
                             latitude + "," + longitude + "?callback=?";
             return generated_url;
         }
