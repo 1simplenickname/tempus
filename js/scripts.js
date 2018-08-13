@@ -9,9 +9,9 @@ function weather() {
     let temperature = document.getElementById("temperature");
     let minutely = document.getElementById("minutely");
 
-    navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.getCurrentPosition(showPosition);
 
-    function success(position) {
+    function showPosition(position) {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
 
