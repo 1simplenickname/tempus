@@ -19,10 +19,8 @@ function weather() {
 							 "longitude is " + longitude + "°";
 
         function generateURL() {
-            generated_url = url + apiKey
-                + "" +
-                latitude + "," + longitude
-                + "?callback=?";
+            generated_url = url + apiKey + "/" + latitude + "," + longitude
+                            + "?callback=?";
             return generated_url;
         }
         generateURL();
