@@ -1,60 +1,60 @@
 function weather() {
 
-	let location = document.getElementById("location");
-	let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
-	let url = "https://api.forecast.io/forecast/";
+    let location = document.getElementById("location");
+    let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
+    let url = "https://api.forecast.io/forecast/";
 
-	let generated_url = "";
+    let generated_url = "";
 
-	let temperature = document.getElementById("temperature");
-	let minutely = document.getElementById("minutely");
+    let temperature = document.getElementById("temperature");
+    let minutely = document.getElementById("minutely");
 
-	navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.getCurrentPosition(success, error);
 
-	function success(position) {
-    	let latitude = position.coords.latitude;
-    	let longitude = position.coords.longitude;
+    function success(position) {
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
 
-		location.innerHTML = "Latitude is " + latitude + "°" 
-							 + " " +
+        location.innerHTML = "Latitude is " + latitude + "°" + " " +
 							 "longitude is " + longitude + "°";
 
-		function generateURL() {
-			generated_url = url + apiKey 
-							+ "" +
-			 				latitude + "," + longitude
-			 				+ "?callback=?";
-			return generated_url;
-		}
-		console.log(generated_url);
+        function generateURL() {
+            generated_url = url + apiKey
+                + "" +
+                latitude + "," + longitude
+                + "?callback=?";
+            return generated_url;
+        }
+        generateURL();
+        console.log(generated_url);
 
-		let request = new XMLHttpRequest();
-		request.open('GET', generated_url, true);
+        let request = new XMLHttpRequest();
+        request.open('GET', generated_url, true);
 
-		request.onload = function() {
-			if (request.status >= 200 && request.status < 400) {
-				// Success!
-				let data = JSON.parse(request.responseText);
-				temperature.innerHTML = data.currently.temperature + "° F";
-				minutely.innerHTML = data.minutely.summary;
-			} else {
-				// We reached our target server, but it returned an error
-			}
-		};
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+                // Success!
+                let data = JSON.parse(request.responseText);
+                temperature.innerHTML = data.currently.temperature + "° F";
+                minutely.innerHTML = data.minutely.summary;
+            } else {
+                error();
+            }
+        };
 
-		request.onerror = function() {
-			// There was a connection error of some sort
-		};
+        request.onerror = function() {
+            error();
+        };
 
-		request.send();
+        request.send();
 
-		function error() {
-			location.innerHTML = "Unable to retrieve your location";
-		}
+        function error() {
+            location.innerHTML = "Unable to retrieve your location";
+        }
 
-		location.innerHTML = "Locating...";
+        location.innerHTML = "Locating...";
 
-	}
+    }
 }
 
 weather();
