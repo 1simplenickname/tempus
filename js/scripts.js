@@ -9,9 +9,12 @@ function weather() {
     let minutely = document.getElementById("minutely");
     let location = document.getElementById("location");
 
+    location.innerHTML = "Locating...";
+
     navigator.geolocation.getCurrentPosition(showPosition);
 
     function showPosition(position) {
+	    
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
 
@@ -26,39 +29,16 @@ function weather() {
         generateURL();
         console.log(generated_url);
 
-        // let request = new XMLHttpRequest();
-        // request.open('GET', generated_url, true);
-
-        // request.onload = function() {
-        //     if (request.status >= 200 && request.status < 400) {
-        //         // Success!
-        //         let data = JSON.parse(request.responseText);
-        //         temperature.innerHTML = data.currently.temperature + "° F";
-        //         minutely.innerHTML = data.minutely.summary;
-        //     } else {
-        //         error();
-        //     }
-        // };
-
-        // request.onerror = function() {
-        //     error();
-        // };
-
-        // request.send();
-
         $.getJSON(generated_url, function(data) {
         	$("#temperature").html(data.currently.temperature + "° F");
         	$("#minutely").html(data.minutely.summary);
         });
 
-        function error() {
-            location.innerHTML = "Unable to retrieve your location";
-        }
-
-        location.innerHTML = "Locating...";
-
     }
 }
+
 window.onload = function() {
+	
     weather();
+	
 };
