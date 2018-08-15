@@ -86,51 +86,43 @@ function determineWeatherIcon(weather) {
 
         toggleVisibility("sunny", "visible");
         text[0].style.color = "gold"; 
-        text[1].style.color = "gold";
 
     } else if (weather === "clear-night") {
 
         toggleVisibility("moony", "visible");
         text[0].style.color = "slateblue"; 
-        text[1].style.color = "slateblue"; 
 
     } else if (weather === "rain") {
 
         toggleVisibility("rainy", "visible");
         text[0].style.color = "dodgerblue";
-        text[1].style.color = "dodgerblue";
 
     } else if (weather === "snow" || weather === "sleet" || weather === "hail") {
 
         toggleVisibility("snowy", "visible");
         text[0].style.color = "snow";
-        text[1].style.color = "snow";
 
     } else if (weather === "cloudy") {
 
         toggleVisibility("cloudy", "visible");
         text[0].style.color = "gainsboro";
-        text[1].style.color = "gainsboro";
 
     } else if (weather === "partly-cloudy-day") {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("cloudyDay", "visible");
         text[0].style.color = "gold";
-        text.style.color = "gold";
 
     } else if (weather === "partly-cloudy-night") {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("cloudyNight", "visible");
         text[0].style.color = "slateblue";        
-        text[1].style.color = "slateblue"; 
 
     } else if (weather === "thunderstorm") {
 
         toggleVisibility("stormy", "visible");
         text[0].style.color = "gold";        
-        text[1].style.color = "gold"; 
 
     }
 
