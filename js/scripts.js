@@ -18,7 +18,6 @@ function weatherette() {
 
     let temperature = document.getElementById("temperature");
     let minutely = document.getElementById("minutely");
-    let location = document.getElementById("location");
 
     location.innerHTML = "Locating...";
 
@@ -39,9 +38,13 @@ function weatherette() {
 
         $.getJSON(generated_url, function(data) {
 
-            	determineWeatherIcon(data.currently.icon);
-		currentTemperature = data.currently.temperature;
-        	temperature.innerHTML = currentTemperature + "° F";
+            determineWeatherIcon(data.currently.icon);
+
+            currentTemperature = data.currently.temperature;
+            temperature.innerHTML = currentTemperature + "° F";
+
+            toggleVisibility("locating", "hidden");
+            temperature.classList.add("fahrenheit");
 
         });
 
