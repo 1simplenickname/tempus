@@ -1,12 +1,172 @@
-html {
-	font-family: "Avenir Next", Helvetica, sans-serif;
+body {
+	width: 100%;
+	height: 100%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-color: lightsteelblue;
+}
+
+#content {
 	text-align: center;
 }
 
-body {
-	margin: 0 auto;
+#weatherIcons {
+	height: 75px;
+	font-size: 200px; 
 }
 
-h2, h2 {
-	font-weight: 300;
+.weather {
+	top: 30%;
+	left: 50%;
+	position: fixed;
+	transform: translateX(-50%);
+}
+
+#sunny {
+	color: gold;
+	visibility: hidden;
+}
+
+#moony {
+	color: slateblue;
+	visibility: hidden;
+}
+
+#cloudy {
+	color: gainsboro;
+	visibility: hidden;
+}
+
+#cloudyDay {
+	color: gold;
+	visibility: hidden;
+	z-index: -1;
+	transform: translateX(+0%) translateY(-20%);
+	font-size: 150px;
+}
+
+#cloudyNight {
+	color: slateblue;
+	visibility: hidden;
+	z-index: -1;
+	transform: translateX(+0%) translateY(-20%);
+	font-size: 150px;
+}
+
+#rainy {
+	color: dodgerblue;
+	visibility: hidden;
+}
+
+#stormy {
+	color: gold;
+	visibility: hidden;
+}
+
+#snowy {
+	color: snow;
+	visibility: hidden;
+}
+
+.text {
+	font-size: 50px;
+	font-family: 'Work Sans', sans-serif;
+	color: gold;
+	display: block;
+}
+
+#temperature {
+	top: 60%;
+	left: 50%;
+	position: fixed;
+	transform: translateX(-50%);
+}
+
+#temperature:hover {
+	cursor: pointer;
+}
+/*
+.fahreheit {
+	width: 200px;
+}
+
+.celsius {
+	width: 195px;
+}
+
+.kelvin {
+	width: 230px;
+}*/
+
+
+#location {
+	top: 70%;
+	left: 50%;
+	width: 100%;
+	position: fixed;
+	transform: translateX(-50%);
+}
+
+#footer {
+	font-size: 25px;
+	font-family: 'Lato', sans-serif;
+	color: #444;
+	position: fixed;
+	bottom: 15px;
+	width: 275px;
+	text-decoration: none;
+	transform: translateX(-50%);
+}
+
+#footerLogo {
+	position: relative;
+	width: 35px;
+	height: 35px;
+	transform: translateX(-10%) translateY(+25%);
+}
+
+/*media queries*/
+/*iPad landscape media query*/
+@media only screen and (max-width: 1248px) {
+
+}
+
+/*iPad portrait media query*/
+@media only screen and (max-width: 768px) {
+
+}
+
+/*iPhone 5.5" media query*/
+@media only screen and (max-width: 414px) {
+
+	#weatherIcons {
+		transform: translateX(-0%) translateY(+160%);
+	}
+
+	#temperature {
+		width: 300px;	
+	}
+
+}
+
+/*iPhone 4.7" portrait media query*/
+@media only screen and (max-width: 375px) {
+
+	#weatherIcons {
+		transform: translateX(-0%) translateY(+120%);
+	}
+
+}
+
+/*iPhone 4" portrait media query*/
+@media only screen and (max-width: 320px) {
+
+	#weatherIcons {
+		transform: translateX(-0%) translateY(+80%);
+	}
+
 }
