@@ -31,9 +31,7 @@ function weatherette() {
 
         function generateURL() {
 
-            generated_url = url + apiKey + "/" +
-                            latitude + "," + longitude +
-                            "?exclude=minutely,hourly,daily,alerts,flags";
+            generated_url = url + apiKey + "/" + latitude + "," + longitude;
             return generated_url;
 
         }
