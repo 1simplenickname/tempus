@@ -14,16 +14,21 @@ body {
 	text-align: center;
 }
 
-#weatherIcons {
+#icons {
 	height: 75px;
 	font-size: 200px; 
 }
 
-.weather {
+.icon {
 	top: 30%;
 	left: 50%;
 	position: fixed;
 	transform: translateX(-50%);
+}
+
+#locating {
+	color: midnightblue;
+	visibility: visible;
 }
 
 #sunny {
@@ -84,12 +89,13 @@ body {
 	left: 50%;
 	position: fixed;
 	transform: translateX(-50%);
+	color: midnightblue;
 }
 
 #temperature:hover {
 	cursor: pointer;
 }
-/*
+
 .fahreheit {
 	width: 200px;
 }
@@ -100,7 +106,7 @@ body {
 
 .kelvin {
 	width: 230px;
-}*/
+}
 
 #footer {
 	font-size: 25px;
@@ -134,7 +140,7 @@ body {
 /*iPhone 5.5" media query*/
 @media only screen and (max-width: 414px) {
 
-	#weatherIcons {
+	#icons {
 		transform: translateX(-0%) translateY(+160%);
 	}
 
@@ -148,7 +154,7 @@ body {
 /*iPhone 4.7" portrait media query*/
 @media only screen and (max-width: 375px) {
 
-	#weatherIcons {
+	#icons {
 		transform: translateX(-0%) translateY(+120%);
 	}
 
@@ -157,7 +163,7 @@ body {
 /*iPhone 4" portrait media query*/
 @media only screen and (max-width: 320px) {
 
-	#weatherIcons {
+	#icons {
 		transform: translateX(-0%) translateY(+80%);
 	}
 
