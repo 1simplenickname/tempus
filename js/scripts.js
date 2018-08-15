@@ -22,7 +22,7 @@ function weatherette() {
 
     location.innerHTML = "Locating...";
 
-    navigator.geolocation.getCurrentPosition(showPosition);
+    navigator.geolocation.watchPosition(showPosition);
 
     function showPosition(position) {
 
