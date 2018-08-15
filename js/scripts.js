@@ -19,7 +19,7 @@ function weatherette() {
     let temperature = document.getElementById("temperature");
     let minutely = document.getElementById("minutely");
 
-    location.innerHTML = "Locating...";
+    temperature.innerHTML = "Locating...";
 
     navigator.geolocation.watchPosition(showPosition);
 
