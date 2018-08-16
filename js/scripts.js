@@ -165,50 +165,70 @@ function determineWeatherIcon(weather) {
 
 }
 
+
 function pageHotness(temperature) {
 
     let body = document.body;
 
-    if (temperature > 100) {
+    let time = new Date();
+    let hours = time.getHours();
 
-        body.style.backgroundColor = "#DC143C";
+    let footer = document.getElementById("footer");
+    let darkSkyLogo = document.getElementsByClassName("darkSky");
 
-    } else if (temperature > 85) {
+    if (hours >= 20 || hours <= 4) {
 
-        body.style.backgroundColor = "#E5452D";
+        body.style.backgroundColor = "indigo";
+        footer.style.color = "white";
+        darkSkyLogo[0].classList.add("darkSkyNight");
+        darkSkyLogo[1].classList.add("darkSkyNight");
+        darkSkyLogo[2].classList.add("darkSkyNight");
 
-    } else if (temperature > 70) {
+    } else {
 
-        body.style.backgroundColor = "#EE761E";
+        if (temperature >= 100) {
 
-    } else if (temperature > 60) {
+            body.style.backgroundColor = "#DC143C";
 
-        body.style.backgroundColor = "#F6A60F";
+        } else if (temperature >= 85) {
 
-    } else if (temperature > 45) {
+            body.style.backgroundColor = "#E54F3A";
 
-        body.style.backgroundColor = "#FFD700";
+        } else if (temperature >= 70) {
 
-    } else if (temperature > 30) {
+            body.style.backgroundColor = "#EE8A38";
 
-        body.style.backgroundColor = "#6495ED";
+        } else if (temperature >= 60) {
 
-    } else if (temperature > 14) {
+            body.style.backgroundColor = "#F6C435";
 
-        body.style.backgroundColor = "#4BA0F2";
+        } else if (temperature >= 45) {
 
-    } else if (temperature > 0) {
+            body.style.backgroundColor = "#FFFF33";
 
-        body.style.backgroundColor = "#32AAF6";
+        } else if (temperature >= 30) {
 
-    } else if (temperature < -4) {
+            body.style.backgroundColor = "#6495ED";
 
-        body.style.backgroundColor = "#19B5FB";
+        } else if (temperature >= 14) {
 
-    } else if (temperature < -22) {
+            body.style.backgroundColor = "#4BA0F2";
 
-        body.style.backgroundColor = "#00BFFF";
+        } else if (temperature >= 0) {
+
+            body.style.backgroundColor = "#32AAF6";
+
+        } else if (temperature <= -4) {
+
+            body.style.backgroundColor = "#19B5FB";
+
+        } else if (temperature <= -22) {
+
+            body.style.backgroundColor = "#00BFFF";
+
+        }
 
     }
 
 }
+
