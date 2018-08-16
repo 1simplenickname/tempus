@@ -59,6 +59,7 @@ function weatherette() {
             determineWeatherIcon(data.currently.icon);
 
             currentTemperature = data.currently.temperature;
+            pageHotness(currentTemperature);
             
             if (gradingSetting === "C") {
                 temperature.classList.add("celsius");
@@ -157,6 +158,54 @@ function determineWeatherIcon(weather) {
         toggleVisibility("stormy", "visible");
         text[0].style.color = "gold";        
 
+    }
+
+}
+
+function pageHotness(temperature) {
+
+    let body = document.body;
+
+    if (temperature > 100) {
+
+        body.style.backgroundColor = "crimson";
+
+    } else if (temperature > 85) {
+
+        body.style.backgroundColor = "darkred";
+
+    } else if (temperature > 70) {
+
+        body.style.backgroundColor = "indianred";
+
+    } else if (temperature > 60) {
+
+        body.style.backgroundColor = "salmon";
+
+    } else if (temperature > 45) {
+
+        body.style.backgroundColor = "lightsalmon";
+
+    } else if (temperature > 30) {
+
+        body.style.backgroundColor = "lightsteelblue";
+
+    } else if (temperature > 14) {
+
+        body.style.backgroundColor = "skyblue";
+
+    } else if (temperature > 0) {
+
+        body.style.backgroundColor = "lightskyblue";
+
+    } else if (temperature < -4) {
+
+        body.style.backgroundColor = "deepskyblue";
+
+    } else if (temperature < -22) {
+
+        body.style.backgroundColor = "cornflowerblue";
+        
     }
 
 }
