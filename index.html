@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
+<head>
 
-		<meta charset="UTF-8">
-		<title>Weatherette</title>
-		<script src="js/scripts.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/reset.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Weatherette</title>
+	<script src="js/scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Lato|Work+Sans" rel="stylesheet">
 
-	</head>
+</head>
 
-	<body>
+<body>
 
-		<div id="content">
+<div id="content">
 
-			<div id="icons">
+	<div id="icons">
 
-				<i id="locating" class="fas fa-map-marked-alt icon"></i>
+		<i id="locating" class="fas fa-map-marked-alt icon"></i>
 
-				<i id="sunny" class="fas fa-sun icon"></i>
-				<i id="moony" class="fas fa-moon icon"></i>
-				<i id="cloudy" class="fas fa-cloud icon"></i>
-				<i id="cloudyDay" class="fas fa-sun icon"></i>
-				<i id="cloudyNight" class="fas fa-moon icon"></i>
-				<i id="rainy" class="fas fa-tint icon"></i>
-				<i id="stormy" class="fas fa-bolt icon"></i>
-				<i id="snowy" class="fas fa-snowflake icon"></i>
+		<i id="sunny" class="fas fa-sun icon"></i>
+		<i id="moony" class="fas fa-moon icon"></i>
+		<i id="cloudy" class="fas fa-cloud icon"></i>
+		<i id="cloudyDay" class="fas fa-sun icon"></i>
+		<i id="cloudyNight" class="fas fa-moon icon"></i>
+		<i id="rainy" class="fas fa-tint icon"></i>
+		<i id="stormy" class="fas fa-bolt icon"></i>
+		<i id="snowy" class="fas fa-snowflake icon"></i>
 
-			</div>
-			
-			<div id="temperature" class="text" 
-				 onclick="temperatureToggle()"></div>
+	</div>
 
-			<a id="footer" href="https://darksky.net/poweredby/">
-				
-				Powered by Dark Sky
+	<div id="temperature" class="text"
+		 onclick="temperatureToggle()"></div>
 
-				<svg id="footerLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
-	              <path fill="#444" d="M 485 165 C 526 154 568 149 597 147 545 68 512 18 496 0 496 0 493 61 371 210 393 198 438 177 485 165 Z"></path>
-	              <path fill="#444" d="M 460 868 C 434 800 427 722 427 722 L 387 745 C 387 745 368 680 361 614 354 550 361 486 361 486 L 308 507 C 308 507 304 430 317 356 325 307 340 261 349 236 348 238 346 240 344 242 236 367 144 491 144 644 144 841 303 1000 499 1000 509 1000 519 1000 529 999 513 974 481 923 460 868 Z"></path>
-	              <path fill="#444" d="M 643 216 C 631 198 620 181 610 166 590 187 561 222 537 259 502 312 482 370 482 370 L 560 346 C 560 346 519 417 499 491 480 555 482 624 482 624 L 536 599 C 536 599 512 688 510 792 508 883 526 965 535 998 714 980 853 829 855 644 856 484 739 359 643 216 Z"></path>
-	            </svg>
+	<a id="footer" href="https://darksky.net/poweredby/">
 
-			</a>
+		Powered by Dark Sky
 
-		</div>
+		<svg id="footerLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+			<path class="darkSky" fill="#444" d="M 485 165 C 526 154 568 149 597 147 545 68 512 18 496 0 496 0 493 61 371 210 393 198 438 177 485 165 Z"></path>
+			<path class="darkSky" fill="#444" d="M 460 868 C 434 800 427 722 427 722 L 387 745 C 387 745 368 680 361 614 354 550 361 486 361 486 L 308 507 C 308 507 304 430 317 356 325 307 340 261 349 236 348 238 346 240 344 242 236 367 144 491 144 644 144 841 303 1000 499 1000 509 1000 519 1000 529 999 513 974 481 923 460 868 Z"></path>
+			<path class="darkSky" fill="#444" d="M 643 216 C 631 198 620 181 610 166 590 187 561 222 537 259 502 312 482 370 482 370 L 560 346 C 560 346 519 417 499 491 480 555 482 624 482 624 L 536 599 C 536 599 512 688 510 792 508 883 526 965 535 998 714 980 853 829 855 644 856 484 739 359 643 216 Z"></path>
+		</svg>
 
-	</body>
+	</a>
+
+</div>
+
+</body>
 
 </html>

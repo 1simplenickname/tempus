@@ -16,7 +16,7 @@ body {
 
 #icons {
 	height: 75px;
-	font-size: 200px; 
+	font-size: 200px;
 }
 
 .icon {
@@ -126,11 +126,15 @@ body {
 	transform: translateX(-10%) translateY(+25%);
 }
 
+.darkSky {
+
+}
+
 .darkSkyNight {
 	fill: white;
 }
 
-.fadeable {
+.fade-able {
 	transition: background-color 500ms ease-in-out;
 }
 
@@ -153,7 +157,7 @@ body {
 	}
 
 	#temperature {
-		width: 300px;	
+		width: 300px;
 		transform: translateX(-50%) translateY(+100%);
 	}
 

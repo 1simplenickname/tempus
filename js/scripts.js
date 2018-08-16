@@ -7,20 +7,18 @@ window.onload = function() {
 };
 
 function toggleVisibility(target, state) {
-	
+
     document.getElementById(target).style.visibility = state;
-	
+
 }
 
 function weatherette() {
 
     let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
     let url = "https://api.forecast.io/forecast/";
-	let generated_url = "";
 
     let body = document.body;
     let temperature = document.getElementById("temperature");
-    let minutely = document.getElementById("minutely");
 
     toggleVisibility("sunny", "hidden");
     toggleVisibility("moony", "hidden");
@@ -47,13 +45,7 @@ function weatherette() {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
 
-        function generateURL() {
-
-            generated_url = url + apiKey + "/" + latitude + "," + longitude + "?exclude=minutely,hourly,daily,alerts,flags&callback=?";
-            return generated_url;
-
-        }
-        generateURL();
+        let generated_url = url + apiKey + "/" + latitude + "," + longitude + "?exclude=minutely,hourly,daily,alerts,flags&callback=?";
 
         $.getJSON(generated_url, function(data) {
 
@@ -61,7 +53,7 @@ function weatherette() {
 
             currentTemperature = data.currently.temperature;
             pageHotness(currentTemperature);
-            
+
             if (gradingSetting === "C") {
                 temperature.classList.add("celsius");
                 temperature.innerHTML = Math.round((currentTemperature - 32) / 1.8 * 100) / 100 + "° " + gradingSetting;
@@ -82,36 +74,36 @@ function weatherette() {
     }
 
     return currentTemperature;
-	
+
 }
 
 function temperatureToggle() {
 
-	if (temperature.classList.contains("fahrenheit")) {
+    if (temperature.classList.contains("fahrenheit")) {
 
-		temperature.innerHTML = Math.round((currentTemperature - 32) / 1.8 * 100) / 100 + "° C";
-		temperature.classList.remove("fahrenheit");
-		temperature.classList.add("celsius");
+        temperature.innerHTML = Math.round((currentTemperature - 32) / 1.8 * 100) / 100 + "° C";
+        temperature.classList.remove("fahrenheit");
+        temperature.classList.add("celsius");
 
         localStorage.setItem("gradingSetting", "C");
 
-	} else if (temperature.classList.contains("celsius")) {
+    } else if (temperature.classList.contains("celsius")) {
 
-		temperature.innerHTML = Math.round(((currentTemperature - 32)  / 1.8) + 273.15 * 100) / 100 + "° K";
-		temperature.classList.remove("celsius");
-		temperature.classList.add("kelvin");
+        temperature.innerHTML = Math.round(((currentTemperature - 32)  / 1.8) + 273.15 * 100) / 100 + "° K";
+        temperature.classList.remove("celsius");
+        temperature.classList.add("kelvin");
 
         localStorage.setItem("gradingSetting", "K");
 
-	} else if (temperature.classList.contains("kelvin")) {
+    } else if (temperature.classList.contains("kelvin")) {
 
-		temperature.innerHTML = currentTemperature + "° F";
-		temperature.classList.remove("kelvin");
-		temperature.classList.add("fahrenheit");
+        temperature.innerHTML = currentTemperature + "° F";
+        temperature.classList.remove("kelvin");
+        temperature.classList.add("fahrenheit");
 
         localStorage.setItem("gradingSetting", "F");
 
-	}
+    }
 
 }
 
@@ -122,12 +114,12 @@ function determineWeatherIcon(weather) {
     if (weather === "clear-day") {
 
         toggleVisibility("sunny", "visible");
-        text[0].style.color = "gold"; 
+        text[0].style.color = "gold";
 
     } else if (weather === "clear-night") {
 
         toggleVisibility("moony", "visible");
-        text[0].style.color = "slateblue"; 
+        text[0].style.color = "slateblue";
 
     } else if (weather === "rain") {
 
@@ -154,12 +146,12 @@ function determineWeatherIcon(weather) {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("cloudyNight", "visible");
-        text[0].style.color = "slateblue";        
+        text[0].style.color = "slateblue";
 
     } else if (weather === "thunderstorm") {
 
         toggleVisibility("stormy", "visible");
-        text[0].style.color = "gold";        
+        text[0].style.color = "gold";
 
     }
 
@@ -174,15 +166,15 @@ function pageHotness(temperature) {
     let hours = time.getHours();
 
     let footer = document.getElementById("footer");
-    let darkSkyLogo = document.getElementsByClassName("darkSky");
+    let darkSky = document.getElementsByClassName("darkSky");
 
     if (hours >= 20 || hours <= 4) {
 
         body.style.backgroundColor = "indigo";
         footer.style.color = "white";
-        darkSkyLogo[0].classList.add("darkSkyNight");
-        darkSkyLogo[1].classList.add("darkSkyNight");
-        darkSkyLogo[2].classList.add("darkSkyNight");
+        darkSky[0].classList.add("darkSkyNight");
+        darkSky[1].classList.add("darkSkyNight");
+        darkSky[2].classList.add("darkSkyNight");
 
     } else {
 
