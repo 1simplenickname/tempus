@@ -7,7 +7,9 @@ window.onload = function() {
 };
 
 function toggleVisibility(target, state) {
+	
     document.getElementById(target).style.visibility = state;
+	
 }
 
 function weatherette() {
@@ -19,7 +21,23 @@ function weatherette() {
     let temperature = document.getElementById("temperature");
     let minutely = document.getElementById("minutely");
 
+    toggleVisibility("sunny", "hidden");
+    toggleVisibility("moony", "hidden");
+    toggleVisibility("cloudy", "hidden");
+    toggleVisibility("cloudyDay", "hidden");
+    toggleVisibility("cloudyNight", "hidden");
+    toggleVisibility("rainy", "hidden");
+    toggleVisibility("stormy", "hidden");
+    toggleVisibility("snowy", "hidden");
+
+    temperature.classList.remove("fahrenheit");
+    temperature.classList.remove("celsius");
+    temperature.classList.remove("kelvin");
+
+    toggleVisibility("locating", "visible");
     temperature.innerHTML = "Locating...";
+
+    let gradingSetting = localStorage.getItem("gradingSetting");
 
     navigator.geolocation.watchPosition(showPosition);
 
@@ -41,17 +59,26 @@ function weatherette() {
             determineWeatherIcon(data.currently.icon);
 
             currentTemperature = data.currently.temperature;
-            temperature.innerHTML = currentTemperature + "° F";
+            
+            if (gradingSetting === "C") {
+                temperature.classList.add("celsius");
+                temperature.innerHTML = Math.round((currentTemperature - 32) / 1.8 * 100) / 100 + "° " + gradingSetting;
+            } else if (gradingSetting === "K") {
+                temperature.classList.add("kelvin");
+                temperature.innerHTML = Math.round(((currentTemperature - 32)  / 1.8) + 273.15 * 100) / 100 + "° " + gradingSetting;
+            } else {
+                temperature.classList.add("fahrenheit");
+                temperature.innerHTML = currentTemperature + "° F";
+            }
 
             toggleVisibility("locating", "hidden");
-            temperature.classList.add("fahrenheit");
 
         });
 
     }
-	
-    location.innerHTML = "";
+
     return currentTemperature;
+	
 }
 
 function temperatureToggle() {
@@ -62,17 +89,23 @@ function temperatureToggle() {
 		temperature.classList.remove("fahrenheit");
 		temperature.classList.add("celsius");
 
+        localStorage.setItem("gradingSetting", "C");
+
 	} else if (temperature.classList.contains("celsius")) {
 
 		temperature.innerHTML = Math.round(((currentTemperature - 32)  / 1.8) + 273.15 * 100) / 100 + "° K";
 		temperature.classList.remove("celsius");
 		temperature.classList.add("kelvin");
 
+        localStorage.setItem("gradingSetting", "K");
+
 	} else if (temperature.classList.contains("kelvin")) {
 
 		temperature.innerHTML = currentTemperature + "° F";
 		temperature.classList.remove("kelvin");
 		temperature.classList.add("fahrenheit");
+
+        localStorage.setItem("gradingSetting", "F");
 
 	}
 
