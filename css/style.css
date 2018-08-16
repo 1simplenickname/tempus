@@ -8,15 +8,29 @@ body {
 	-ms-user-select: none;
 	user-select: none;
 	background-color: lightsteelblue;
+	text-align: center;
 }
 
-#content {
-	text-align: center;
+#about, #aboutClose {
+	position: fixed;
+	font-size: 50px ;
+	right: 15px;
+	top: 15px;
+	z-index: 1;
+}
+
+#about {
+	visibility: visible;
+}
+
+#aboutClose {
+	visibility: hidden;
 }
 
 #icons {
 	height: 75px;
 	font-size: 200px;
+	z-index: 0;
 }
 
 .icon {
@@ -24,64 +38,78 @@ body {
 	left: 50%;
 	position: fixed;
 	transform: translateX(-50%);
+	z-index: 1;
 }
 
 #locating {
-	color: steelblue;
 	visibility: visible;
 }
 
-#sunny {
-	color: gold;
+#clear-day {
 	visibility: hidden;
 }
 
-#moony {
-	color: slateblue;
+#clear-night {
 	visibility: hidden;
 }
 
 #cloudy {
-	color: gainsboro;
 	visibility: hidden;
 }
 
-#cloudyDay {
-	color: gold;
+#partly-cloudy-day {
 	visibility: hidden;
 	z-index: -1;
 	transform: translateY(-20%);
 	font-size: 150px;
 }
 
-#cloudyNight {
+#partly-cloudy-night {
+	visibility: hidden;
+	z-index: -1;
+	transform: translateY(-20%);
+	font-size: 150px;
+}
+
+#rain {
+	visibility: hidden;
+}
+
+#thunderstorm {
+	visibility: hidden;
+}
+
+#snow {
+	visibility: hidden;
+}
+
+.steelblue {
+	color: steelblue;
+}
+
+.gold {
+	color: gold;
+}
+
+.slateblue {
 	color: slateblue;
-	visibility: hidden;
-	z-index: -1;
-	transform: translateY(-20%);
-	font-size: 150px;
 }
 
-#rainy {
+.gainboro {
+	color: gainsboro;
+}
+
+.dodgerblue {
 	color: dodgerblue;
-	visibility: hidden;
 }
 
-#stormy {
-	color: gold;
-	visibility: hidden;
-}
-
-#snowy {
+.snow {
 	color: snow;
-	visibility: hidden;
 }
 
 .text {
 	font-size: 50px;
 	font-family: 'Work Sans', sans-serif;
-	color: gold;
-	display: block;
 }
 
 #temperature {
@@ -89,10 +117,10 @@ body {
 	left: 50%;
 	position: fixed;
 	transform: translateX(-50%);
-	color: steelblue;
+	z-index: 1;
 }
 
-#temperature:hover {
+#about:hover, #aboutClose:hover, #temperature:hover {
 	cursor: pointer;
 }
 
@@ -117,6 +145,7 @@ body {
 	width: 275px;
 	text-decoration: none;
 	transform: translateX(-50%);
+	z-index: 1;
 }
 
 #footerLogo {
