@@ -27,7 +27,7 @@ body {
 }
 
 #locating {
-	color: midnightblue;
+	color: steelblue;
 	visibility: visible;
 }
 
@@ -89,7 +89,7 @@ body {
 	left: 50%;
 	position: fixed;
 	transform: translateX(-50%);
-	color: midnightblue;
+	color: steelblue;
 }
 
 #temperature:hover {
@@ -124,6 +124,10 @@ body {
 	width: 35px;
 	height: 35px;
 	transform: translateX(-10%) translateY(+25%);
+}
+
+.fadeable {
+	transition: background-color 500ms ease-in-out;
 }
 
 /*media queries*/
