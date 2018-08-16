@@ -18,6 +18,7 @@ function weatherette() {
     let url = "https://api.forecast.io/forecast/";
 	let generated_url = "";
 
+    let body = document.body;
     let temperature = document.getElementById("temperature");
     let minutely = document.getElementById("minutely");
 
