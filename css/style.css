@@ -126,6 +126,10 @@ body {
 	transform: translateX(-10%) translateY(+25%);
 }
 
+.darkSkyNight {
+	fill: white;
+}
+
 .fadeable {
 	transition: background-color 500ms ease-in-out;
 }
