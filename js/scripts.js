@@ -67,7 +67,7 @@ function weatherette() {
 
             toggleVisibility("locating", "hidden");
 
-            body.classList.add("fadeable");
+            body.classList.add("fade-able");
 
         });
 
