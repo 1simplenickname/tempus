@@ -170,44 +170,44 @@ function pageHotness(temperature) {
 
     if (temperature > 100) {
 
-        body.style.backgroundColor = "crimson";
+        body.style.backgroundColor = "#DC143C";
 
     } else if (temperature > 85) {
 
-        body.style.backgroundColor = "darkred";
+        body.style.backgroundColor = "#E5452D";
 
     } else if (temperature > 70) {
 
-        body.style.backgroundColor = "indianred";
+        body.style.backgroundColor = "#EE761E";
 
     } else if (temperature > 60) {
 
-        body.style.backgroundColor = "salmon";
+        body.style.backgroundColor = "#F6A60F";
 
     } else if (temperature > 45) {
 
-        body.style.backgroundColor = "lightsalmon";
+        body.style.backgroundColor = "#FFD700";
 
     } else if (temperature > 30) {
 
-        body.style.backgroundColor = "lightsteelblue";
+        body.style.backgroundColor = "#6495ED";
 
     } else if (temperature > 14) {
 
-        body.style.backgroundColor = "skyblue";
+        body.style.backgroundColor = "#4BA0F2";
 
     } else if (temperature > 0) {
 
-        body.style.backgroundColor = "lightskyblue";
+        body.style.backgroundColor = "#32AAF6";
 
     } else if (temperature < -4) {
 
-        body.style.backgroundColor = "deepskyblue";
+        body.style.backgroundColor = "#19B5FB";
 
     } else if (temperature < -22) {
 
-        body.style.backgroundColor = "cornflowerblue";
-        
+        body.style.backgroundColor = "#00BFFF";
+
     }
 
 }
