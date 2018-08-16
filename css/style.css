@@ -50,7 +50,7 @@ body {
 	color: gold;
 	visibility: hidden;
 	z-index: -1;
-	transform: translateX(+0%) translateY(-20%);
+	transform: translateY(-20%);
 	font-size: 150px;
 }
 
@@ -58,7 +58,7 @@ body {
 	color: slateblue;
 	visibility: hidden;
 	z-index: -1;
-	transform: translateX(+0%) translateY(-20%);
+	transform: translateY(-20%);
 	font-size: 150px;
 }
 
@@ -105,7 +105,7 @@ body {
 }
 
 .kelvin {
-	width: 230px;
+	width: 250px;
 }
 
 #footer {
@@ -141,7 +141,7 @@ body {
 @media only screen and (max-width: 414px) {
 
 	#icons {
-		transform: translateX(-0%) translateY(+160%);
+		transform: translateY(+160%);
 	}
 
 	#temperature {
@@ -155,7 +155,7 @@ body {
 @media only screen and (max-width: 375px) {
 
 	#icons {
-		transform: translateX(-0%) translateY(+120%);
+		transform: translateY(+120%);
 	}
 
 }
@@ -164,7 +164,7 @@ body {
 @media only screen and (max-width: 320px) {
 
 	#icons {
-		transform: translateX(-0%) translateY(+80%);
+		transform: translateY(+80%);
 	}
 
 }
