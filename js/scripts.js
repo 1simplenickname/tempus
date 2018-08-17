@@ -1,13 +1,15 @@
 let currentTemperature = "";
 
 let gradingSetting = localStorage.getItem("gradingSetting");
-let currentIcon = localStorage.getItem("currentIcon");
+let currentIcon = "";
 
-window.onload = function() {
-
-    weatherette();
-
-};
+let body = document.body;
+let WorkSans = document.getElementsByClassName("WorkSans");
+let aboutOpen = document.getElementById("aboutOpen");
+let aboutClose = document.getElementById("aboutClose");
+let temperature = document.getElementById("temperature");
+let footer = document.getElementById("footer");
+let darkSky = document.getElementsByClassName("darkSky");
 
 function toggleVisibility(target, state) {
 
@@ -15,13 +17,50 @@ function toggleVisibility(target, state) {
 
 }
 
-function weatherette() {
+function toggleAbout() {
+
+    if (aboutOpen.style.visibility !== "hidden") {
+
+        toggleVisibility("aboutOpen", "hidden");
+        toggleVisibility("aboutContent", "visible");
+        toggleVisibility("aboutClose", "visible");
+        
+        if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
+            document.getElementById(currentIcon).style.visibility = "hidden";
+            toggleVisibility("cloudy", "hidden");            
+        } else if (currentIcon === "") {
+            toggleVisibility("locating", "hidden");
+        } else {
+            document.getElementById(currentIcon).style.visibility = "hidden";
+        }
+
+        toggleVisibility("temperature", "hidden");
+
+    } else if (aboutClose.style.visibility !== "hidden") {
+
+        toggleVisibility("aboutClose", "hidden");
+        toggleVisibility("aboutContent", "hidden");
+        toggleVisibility("aboutOpen", "visible");
+
+        if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
+            document.getElementById(currentIcon).style.visibility = "visible";
+            toggleVisibility("cloudy", "visible");            
+        } else if (currentIcon === "") {
+            toggleVisibility("locating", "visible");
+        } else {
+            document.getElementById(currentIcon).style.visibility = "visible";
+        }
+
+        toggleVisibility("temperature", "visible");
+
+    }
+
+}
+
+function tempus() {
 
     let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
     let url = "https://api.forecast.io/forecast/";
-
-    let body = document.body;
-    let temperature = document.getElementById("temperature");
 
     toggleVisibility("clear-day", "hidden");
     toggleVisibility("clear-night", "hidden");
@@ -41,15 +80,15 @@ function weatherette() {
 
     if (aboutClose.style.visibility !== "visible") {
 
-        navigator.geolocation.watchPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(callDarkSky);
 
     } else {
 
-
+        // do nothing
 
     }
 
-    function showPosition(position) {
+    function callDarkSky(position) {
 
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
@@ -58,8 +97,7 @@ function weatherette() {
 
         $.getJSON(generated_url, function(data) {
 
-            localStorage.setItem("currentIcon", data.currently.icon);
-
+            currentIcon = data.currently.icon;
             determineWeatherIcon(currentIcon);
 
             currentTemperature = data.currently.temperature;
@@ -91,29 +129,6 @@ function weatherette() {
     }
 
     return currentTemperature;
-
-}
-
-function toggleAbout() {
-
-    let about = document.getElementById("about");
-    let aboutClose = document.getElementById("aboutClose");
-
-    if (about.style.visibility !== "hidden") {
-
-        toggleVisibility("about", "hidden");
-        toggleVisibility("aboutClose", "visible");
-        document.getElementById(currentIcon).style.visibility = "hidden";
-        toggleVisibility("temperature", "hidden");
-
-    } else if (aboutClose.style.visibility !== "hidden") {
-
-        toggleVisibility("aboutClose", "hidden");
-        toggleVisibility("about", "visible");
-        document.getElementById(currentIcon).style.visibility = "visible";
-        toggleVisibility("temperature", "visible");
-
-    }
 
 }
 
@@ -149,23 +164,19 @@ function temperatureToggle() {
 
 function determineWeatherIcon(weather) {
 
-    let text = document.getElementsByClassName("text");
-    let about = document.getElementById("about");
-    let aboutClose = document.getElementById("aboutClose");
+    WorkSans[1].classList.remove("steelblue");
+    WorkSans[1].classList.remove("gold");
+    WorkSans[1].classList.remove("slateblue");
+    WorkSans[1].classList.remove("dodgerblue");
+    WorkSans[1].classList.remove("snow");
+    WorkSans[1].classList.remove("gainsboro");
 
-    text[0].classList.remove("steelblue");
-    text[0].classList.remove("gold");
-    text[0].classList.remove("slateblue");
-    text[0].classList.remove("dodgerblue");
-    text[0].classList.remove("snow");
-    text[0].classList.remove("gainsboro");
-
-    about.classList.remove("steelblue");
-    about.classList.remove("gold");
-    about.classList.remove("slateblue");
-    about.classList.remove("dodgerblue");
-    about.classList.remove("snow");
-    about.classList.remove("gainsboro");
+    aboutOpen.classList.remove("steelblue");
+    aboutOpen.classList.remove("gold");
+    aboutOpen.classList.remove("slateblue");
+    aboutOpen.classList.remove("dodgerblue");
+    aboutOpen.classList.remove("snow");
+    aboutOpen.classList.remove("gainsboro");
 
     aboutClose.classList.remove("steelblue");
     aboutClose.classList.remove("gold");
@@ -177,59 +188,67 @@ function determineWeatherIcon(weather) {
     if (weather === "clear-day") {
 
         toggleVisibility("clear-day", "visible");
-        text[0].classList.add("gold");
-        about.classList.add("gold");
+        WorkSans[0].classList.add("gold");
+        WorkSans[1].classList.add("gold");
+        aboutOpen.classList.add("gold");
         aboutClose.classList.add("gold");
 
     } else if (weather === "clear-night") {
 
         toggleVisibility("clear-night", "visible");
-        text[0].classList.add("slateblue");
-        about.classList.add("slateblue");
+        WorkSans[0].classList.add("slateblue");
+        WorkSans[1].classList.add("slateblue");
+        aboutOpen.classList.add("slateblue");
         aboutClose.classList.add("slateblue");
 
     } else if (weather === "rain") {
 
         toggleVisibility("rain", "visible");
-        text[0].classList.add("dodgerblue");
-        about.classList.add("dodgerblue");
+        WorkSans[0].classList.add("dodgerblue");
+        WorkSans[1].classList.add("dodgerblue");
+        aboutOpen.classList.add("dodgerblue");
         aboutClose.classList.add("dodgerblue");
 
     } else if (weather === "snow" || weather === "sleet" || weather === "hail") {
 
         toggleVisibility("snow", "visible");
-        text[0].classList.add("snow");
-        about.classList.add("snow");
+        WorkSans[0].classList.add("snow");
+        WorkSans[1].classList.add("snow");
+        aboutOpen.classList.add("snow");
         aboutClose.classList.add("snow");
 
     } else if (weather === "cloudy") {
 
         toggleVisibility("cloudy", "visible");
-        text[0].classList.add("gainsboro");
-        about.classList.add("gainsboro");
+        WorkSans[0].classList.add("gainsboro");
+        WorkSans[1].classList.add("gainsboro");
+        aboutOpen.classList.add("gainsboro");
         aboutClose.classList.add("gainsboro");
 
     } else if (weather === "partly-cloudy-day") {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("partly-cloudy-day", "visible");
-        text[0].classList.add("gold");
-        about.classList.add("gold");
+        WorkSans[0].classList.add("gold");
+        WorkSans[1].classList.add("gold");
+        aboutOpen.classList.add("gold");
         aboutClose.classList.add("gold");
 
     } else if (weather === "partly-cloudy-night") {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("partly-cloudy-night", "visible");
-        text[0].classList.add("slateblue");
-        about.classList.add("slateblue");
+        WorkSans[0].classList.add("slateblue");
+        WorkSans[1].classList.add("slateblue");
+        aboutOpen.classList.add("slateblue");
         aboutClose.classList.add("slateblue");
 
     } else if (weather === "thunderstorm") {
 
         toggleVisibility("thunderstorm", "visible");
-        text[0].classList.add("gold");
-        about.classList.add("gold");
+        WorkSans[0].classList.add("gold");
+        WorkSans[1].classList.add("gold");
+        aboutOpen.classList.add("gold");
         aboutClose.classList.add("gold");
 
     }
@@ -239,15 +258,10 @@ function determineWeatherIcon(weather) {
 
 function pageHotness(temperature) {
 
-    let body = document.body;
-
     let time = new Date();
     let hours = time.getHours();
 
-    let footer = document.getElementById("footer");
-    let darkSky = document.getElementsByClassName("darkSky");
-
-    if (hours >= 21 || hours <= 6) {
+    if (hours >= 20 || hours <= 4) {
 
         body.style.backgroundColor = "indigo";
         footer.style.color = "white";
@@ -263,19 +277,19 @@ function pageHotness(temperature) {
 
         } else if (temperature >= 85) {
 
-            body.style.backgroundColor = "#E54F3A";
+            body.style.backgroundColor = "#E5382D";
 
         } else if (temperature >= 70) {
 
-            body.style.backgroundColor = "#EE8A38";
+            body.style.backgroundColor = "#EE5D1E";
 
         } else if (temperature >= 60) {
 
-            body.style.backgroundColor = "#F6C435";
+            body.style.backgroundColor = "#F6810F";
 
         } else if (temperature >= 45) {
 
-            body.style.backgroundColor = "#FFFF33";
+            body.style.backgroundColor = "#FFA500";
 
         } else if (temperature >= 30) {
 

@@ -11,16 +11,52 @@ body {
 	text-align: center;
 }
 
-#about, #aboutClose {
+#aboutOpen, #aboutClose {
 	position: fixed;
 	font-size: 50px ;
-	right: 15px;
+	left: 15px;
 	top: 15px;
 	z-index: 1;
 }
 
-#about {
+#aboutOpen {
 	visibility: visible;
+}
+
+#aboutContent {
+	visibility: hidden;
+	position: fixed;
+	top: 30%;
+	left: 50%;
+	width: 100%;
+	transform: translateX(-50%);
+}
+
+#aboutFirstParagraph {
+	width: 100%;
+}
+
+#aboutSocial {
+	width: 100%;
+	position:  fixed;
+	top: 175%;
+}
+
+#twitter {
+	color: #00aced;
+	text-decoration: none;
+}
+
+#facebook {
+	color: #3B5998;
+}
+
+#facebookFiller {
+	color: white;
+	position: fixed;
+	transform: translateX(-105%) translateY(+13%);
+	z-index: -1;
+	font-size: 45px;
 }
 
 #aboutClose {
@@ -107,7 +143,7 @@ body {
 	color: snow;
 }
 
-.text {
+.WorkSans {
 	font-size: 50px;
 	font-family: 'Work Sans', sans-serif;
 }
@@ -120,7 +156,7 @@ body {
 	z-index: 1;
 }
 
-#about:hover, #aboutClose:hover, #temperature:hover {
+#aboutOpen:hover, #aboutClose:hover, #temperature:hover {
 	cursor: pointer;
 }
 
@@ -164,7 +200,8 @@ body {
 }
 
 .fade-able {
-	transition: background-color 500ms ease-in-out;
+	transition: background-color 500ms ease-in-out,
+				color 500ms ease-in-out;
 }
 
 /*media queries*/
@@ -185,6 +222,18 @@ body {
 		transform: translateY(+160%);
 	}
 
+	#aboutFirstParagraph {
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%) translateY(-25%);
+	}
+
+	#aboutSocial {
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%) translateY(+225%);
+	}
+
 	#temperature {
 		width: 300px;
 		transform: translateX(-50%) translateY(+100%);
@@ -199,6 +248,14 @@ body {
 		transform: translateY(+120%);
 	}
 
+	#aboutContent {
+		font-size: 40px;
+	}
+
+	#facebookFiller {
+		font-size: 36px;
+	}
+
 }
 
 /*iPhone 4" portrait media query*/
@@ -206,6 +263,14 @@ body {
 
 	#icons {
 		transform: translateY(+80%);
+	}
+
+	#aboutContent {
+		font-size: 33px;
+	}
+
+	#facebookFiller {
+		font-size: 29px;
 	}
 
 }
