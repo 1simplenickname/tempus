@@ -208,6 +208,10 @@ body {
 /*iPad landscape media query*/
 @media only screen and (max-width: 1248px) {
 
+    #facebookFiller {
+        font-size: 44px;
+    }
+
 }
 
 /*iPad portrait media query*/
@@ -253,7 +257,7 @@ body {
 	}
 
 	#facebookFiller {
-		font-size: 36px;
+		font-size: 35px;
 	}
 
 }
@@ -266,7 +270,7 @@ body {
 	}
 
 	#aboutContent {
-		font-size: 33px;
+		font-size: 32px;
 	}
 
 	#facebookFiller {
