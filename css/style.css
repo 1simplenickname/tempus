@@ -17,6 +17,7 @@ body {
 	left: 15px;
 	top: 15px;
 	z-index: 1;
+	color: steelblue;
 }
 
 #aboutOpen {
@@ -79,18 +80,22 @@ body {
 
 #locating {
 	visibility: visible;
+	color: steelblue;
 }
 
 #clear-day {
 	visibility: hidden;
+	color: gold;
 }
 
 #clear-night {
 	visibility: hidden;
+	color: slateblue;
 }
 
 #cloudy {
 	visibility: hidden;
+	color: gainsboro;
 }
 
 #partly-cloudy-day {
@@ -98,6 +103,7 @@ body {
 	z-index: -1;
 	transform: translateY(-20%);
 	font-size: 150px;
+	color: gold;
 }
 
 #partly-cloudy-night {
@@ -105,41 +111,21 @@ body {
 	z-index: -1;
 	transform: translateY(-20%);
 	font-size: 150px;
+	color: slateblue;
 }
 
 #rain {
 	visibility: hidden;
+	color: dodgerblue;
 }
 
 #thunderstorm {
 	visibility: hidden;
+	color: gold;
 }
 
 #snow {
 	visibility: hidden;
-}
-
-.steelblue {
-	color: steelblue;
-}
-
-.gold {
-	color: gold;
-}
-
-.slateblue {
-	color: slateblue;
-}
-
-.gainboro {
-	color: gainsboro;
-}
-
-.dodgerblue {
-	color: dodgerblue;
-}
-
-.snow {
 	color: snow;
 }
 
@@ -154,6 +140,7 @@ body {
 	position: fixed;
 	transform: translateX(-50%);
 	z-index: 1;
+	color: steelblue;
 }
 
 #aboutOpen:hover, #aboutClose:hover, #temperature:hover {

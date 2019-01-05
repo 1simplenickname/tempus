@@ -164,92 +164,71 @@ function temperatureToggle() {
 
 function determineWeatherIcon(weather) {
 
-    WorkSans[1].classList.remove("steelblue");
-    WorkSans[1].classList.remove("gold");
-    WorkSans[1].classList.remove("slateblue");
-    WorkSans[1].classList.remove("dodgerblue");
-    WorkSans[1].classList.remove("snow");
-    WorkSans[1].classList.remove("gainsboro");
-
-    aboutOpen.classList.remove("steelblue");
-    aboutOpen.classList.remove("gold");
-    aboutOpen.classList.remove("slateblue");
-    aboutOpen.classList.remove("dodgerblue");
-    aboutOpen.classList.remove("snow");
-    aboutOpen.classList.remove("gainsboro");
-
-    aboutClose.classList.remove("steelblue");
-    aboutClose.classList.remove("gold");
-    aboutClose.classList.remove("slateblue");
-    aboutClose.classList.remove("dodgerblue");
-    aboutClose.classList.remove("snow");
-    aboutClose.classList.remove("gainsboro");
-
     if (weather === "clear-day") {
 
         toggleVisibility("clear-day", "visible");
-        WorkSans[0].classList.add("gold");
-        WorkSans[1].classList.add("gold");
-        aboutOpen.classList.add("gold");
-        aboutClose.classList.add("gold");
+        WorkSans[0].style.color = "gold";
+        WorkSans[1].style.color = "gold";
+        aboutOpen.style.color = "gold";
+        aboutClose.style.color = "gold";
 
     } else if (weather === "clear-night") {
 
         toggleVisibility("clear-night", "visible");
-        WorkSans[0].classList.add("slateblue");
-        WorkSans[1].classList.add("slateblue");
-        aboutOpen.classList.add("slateblue");
-        aboutClose.classList.add("slateblue");
+        WorkSans[0].style.color = "slateblue";
+        WorkSans[1].style.color = "slateblue";
+        aboutOpen.style.color = "slateblue";
+        aboutClose.style.color = "slateblue";
 
     } else if (weather === "rain") {
 
         toggleVisibility("rain", "visible");
-        WorkSans[0].classList.add("dodgerblue");
-        WorkSans[1].classList.add("dodgerblue");
-        aboutOpen.classList.add("dodgerblue");
-        aboutClose.classList.add("dodgerblue");
+        WorkSans[0].style.color = "dodgerblue";
+        WorkSans[1].style.color = "dodgerblue";
+        aboutOpen.style.color = "dodgerblue";
+        aboutClose.style.color = "dodgerblue";
 
     } else if (weather === "snow" || weather === "sleet" || weather === "hail") {
 
         toggleVisibility("snow", "visible");
-        WorkSans[0].classList.add("snow");
-        WorkSans[1].classList.add("snow");
-        aboutOpen.classList.add("snow");
-        aboutClose.classList.add("snow");
+        WorkSans[0].style.color = "snow";
+        WorkSans[1].style.color = "snow";
+        aboutOpen.style.color = "snow";
+        aboutClose.style.color = "snow";
 
     } else if (weather === "cloudy") {
 
         toggleVisibility("cloudy", "visible");
-        WorkSans[0].classList.add("gainsboro");
-        WorkSans[1].classList.add("gainsboro");
-        aboutOpen.classList.add("gainsboro");
-        aboutClose.classList.add("gainsboro");
+        WorkSans[0].style.color = "gainsboro";
+        WorkSans[1].style.color = "gainsboro";
+        aboutOpen.style.color = "gainsboro";
+        aboutClose.style.color = "gainsboro";
 
     } else if (weather === "partly-cloudy-day") {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("partly-cloudy-day", "visible");
-        WorkSans[0].classList.add("gold");
-        WorkSans[1].classList.add("gold");
-        aboutOpen.classList.add("gold");
-        aboutClose.classList.add("gold");
+        WorkSans[0].style.color = "gold";
+        WorkSans[1].style.color = "gold";
+        aboutOpen.style.color = "gold";
+        aboutClose.style.color = "gold";
 
     } else if (weather === "partly-cloudy-night") {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("partly-cloudy-night", "visible");
-        WorkSans[0].classList.add("slateblue");
-        WorkSans[1].classList.add("slateblue");
-        aboutOpen.classList.add("slateblue");
-        aboutClose.classList.add("slateblue");
+        WorkSans[0].style.color = "slateblue";
+        WorkSans[1].style.color = "slateblue";
+        aboutOpen.style.color = "slateblue";
+        aboutClose.style.color = "slateblue";
 
     } else if (weather === "thunderstorm") {
 
         toggleVisibility("thunderstorm", "visible");
-        WorkSans[0].classList.add("gold");
-        WorkSans[1].classList.add("gold");
-        aboutOpen.classList.add("gold");
-        aboutClose.classList.add("gold");
+        WorkSans[0].style.color = "gold";
+        WorkSans[1].style.color = "gold";
+        aboutOpen.style.color = "gold";
+        aboutClose.style.color = "gold";
 
     }
 
