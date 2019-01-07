@@ -68,6 +68,7 @@ body {
 }
 
 .icon {
+	visibility: hidden;
 	top: 30%;
 	left: 50%;
 	position: fixed;
@@ -81,22 +82,18 @@ body {
 }
 
 #clear-day {
-	visibility: hidden;
 	color: gold;
 }
 
 #clear-night {
-	visibility: hidden;
 	color: slateblue;
 }
 
 #cloudy {
-	visibility: hidden;
 	color: gainsboro;
 }
 
 #partly-cloudy-day {
-	visibility: hidden;
 	z-index: -1;
 	transform: translateY(-20%);
 	font-size: 150px;
@@ -104,7 +101,6 @@ body {
 }
 
 #partly-cloudy-night {
-	visibility: hidden;
 	z-index: -1;
 	transform: translateY(-20%);
 	font-size: 150px;
@@ -112,17 +108,14 @@ body {
 }
 
 #rain {
-	visibility: hidden;
 	color: dodgerblue;
 }
 
 #thunderstorm {
-	visibility: hidden;
 	color: gold;
 }
 
 #snow {
-	visibility: hidden;
 	color: snow;
 }
 
@@ -138,7 +131,7 @@ body {
 	position: fixed;
 	transform: translateX(-50%);
 	z-index: 1;
-	color: steelblue;	
+	color: steelblue;
 	transition: filter 250ms linear;
 }
 
