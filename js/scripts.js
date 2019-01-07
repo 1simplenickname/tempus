@@ -59,6 +59,18 @@ function toggleAbout() {
 
 }
 
+function twitterOpen() {
+  window.open("https://twitter.com/1simplenickname");
+}
+
+function facebookOpen() {
+  window.open("https://www.facebook.com/1simplenickname");
+}
+
+function darkSkyOpen() {
+  window.open("https://darksky.net/poweredby");
+}
+
 function tempus() {
 
     let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
