@@ -6,6 +6,8 @@ let currentIcon = "";
 let body = document.body;
 let WorkSans = document.getElementsByClassName("WorkSans");
 let aboutOpen = document.getElementById("aboutOpen");
+let twitter = document.getElementById("twitter");
+let facebook = document.getElementById("facebook");
 let aboutClose = document.getElementById("aboutClose");
 let temperature = document.getElementById("temperature");
 let footer = document.getElementById("footer");
@@ -24,10 +26,10 @@ function toggleAbout() {
         toggleVisibility("aboutOpen", "hidden");
         toggleVisibility("aboutContent", "visible");
         toggleVisibility("aboutClose", "visible");
-        
+
         if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
             document.getElementById(currentIcon).style.visibility = "hidden";
-            toggleVisibility("cloudy", "hidden");            
+            toggleVisibility("cloudy", "hidden");
         } else if (currentIcon === "") {
             toggleVisibility("locating", "hidden");
         } else {
@@ -44,7 +46,7 @@ function toggleAbout() {
 
         if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
             document.getElementById(currentIcon).style.visibility = "visible";
-            toggleVisibility("cloudy", "visible");            
+            toggleVisibility("cloudy", "visible");
         } else if (currentIcon === "") {
             toggleVisibility("locating", "visible");
         } else {
@@ -170,6 +172,8 @@ function determineWeatherIcon(weather) {
         WorkSans[0].style.color = "gold";
         WorkSans[1].style.color = "gold";
         aboutOpen.style.color = "gold";
+        twitter.style.color = "gold";
+        facebook.style.color = "gold";
         aboutClose.style.color = "gold";
 
     } else if (weather === "clear-night") {
@@ -178,6 +182,8 @@ function determineWeatherIcon(weather) {
         WorkSans[0].style.color = "slateblue";
         WorkSans[1].style.color = "slateblue";
         aboutOpen.style.color = "slateblue";
+        twitter.style.color = "slateblue";
+        facebook.style.color = "slateblue";
         aboutClose.style.color = "slateblue";
 
     } else if (weather === "rain") {
@@ -186,6 +192,8 @@ function determineWeatherIcon(weather) {
         WorkSans[0].style.color = "dodgerblue";
         WorkSans[1].style.color = "dodgerblue";
         aboutOpen.style.color = "dodgerblue";
+        twitter.style.color = "dodgerblue";
+        facebook.style.color = "dodgerblue";
         aboutClose.style.color = "dodgerblue";
 
     } else if (weather === "snow" || weather === "sleet" || weather === "hail") {
@@ -194,6 +202,8 @@ function determineWeatherIcon(weather) {
         WorkSans[0].style.color = "snow";
         WorkSans[1].style.color = "snow";
         aboutOpen.style.color = "snow";
+        twitter.style.color = "snow";
+        facebook.style.color = "snow";
         aboutClose.style.color = "snow";
 
     } else if (weather === "cloudy") {
@@ -202,6 +212,8 @@ function determineWeatherIcon(weather) {
         WorkSans[0].style.color = "gainsboro";
         WorkSans[1].style.color = "gainsboro";
         aboutOpen.style.color = "gainsboro";
+        twitter.style.color = "gainsboro";
+        facebook.style.color = "gainsboro";
         aboutClose.style.color = "gainsboro";
 
     } else if (weather === "partly-cloudy-day") {
@@ -211,6 +223,8 @@ function determineWeatherIcon(weather) {
         WorkSans[0].style.color = "gold";
         WorkSans[1].style.color = "gold";
         aboutOpen.style.color = "gold";
+        twitter.style.color = "gold";
+        facebook.style.color = "gold";
         aboutClose.style.color = "gold";
 
     } else if (weather === "partly-cloudy-night") {
@@ -220,6 +234,8 @@ function determineWeatherIcon(weather) {
         WorkSans[0].style.color = "slateblue";
         WorkSans[1].style.color = "slateblue";
         aboutOpen.style.color = "slateblue";
+        twitter.style.color = "slateblue";
+        facebook.style.color = "slateblue";
         aboutClose.style.color = "slateblue";
 
     } else if (weather === "thunderstorm") {
@@ -228,6 +244,8 @@ function determineWeatherIcon(weather) {
         WorkSans[0].style.color = "gold";
         WorkSans[1].style.color = "gold";
         aboutOpen.style.color = "gold";
+        twitter.style.color = "gold";
+        facebook.style.color = "gold";
         aboutClose.style.color = "gold";
 
     }
@@ -295,4 +313,3 @@ function pageHotness(temperature) {
     }
 
 }
-

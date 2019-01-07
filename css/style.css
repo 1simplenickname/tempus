@@ -43,21 +43,20 @@ body {
 	top: 175%;
 }
 
-#twitter {
-	color: #00aced;
+#twitter, #facebook {
+	color: steelblue;
 	text-decoration: none;
+	transition: color 500ms ease-in-out;
 }
 
-#facebook {
+#twitter:hover {
+	color: #00aced;
+	transition: color 500ms ease-in-out;
+}
+
+#facebook:hover {
 	color: #3B5998;
-}
-
-#facebookFiller {
-	color: white;
-	position: fixed;
-	transform: translateX(-105%) translateY(+13%);
-	z-index: -1;
-	font-size: 45px;
+	transition: color 500ms ease-in-out;
 }
 
 #aboutClose {
@@ -132,6 +131,7 @@ body {
 .WorkSans {
 	font-size: 50px;
 	font-family: 'Work Sans', sans-serif;
+	color: steelblue;
 }
 
 #temperature {
