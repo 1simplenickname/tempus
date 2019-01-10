@@ -23,6 +23,18 @@ function toggleVisibility(target, state) {
 
 }
 
+function changeElementColors(color) {
+
+  loading.style.color = color;
+  WorkSans[0].style.color = color;
+  WorkSans[1].style.color = color;
+  aboutOpen.style.color = color;
+  twitter.style.color = color;;
+  facebook.style.color = color;
+  aboutClose.style.color = color;
+
+}
+
 function toggleAbout() {
 
     if (aboutOpen.style.visibility !== "hidden") {
@@ -206,92 +218,44 @@ function determineWeatherIcon(weather) {
     if (weather === "clear-day") {
 
         toggleVisibility("clear-day", "visible");
-        loading.style.color = "gold";
-        WorkSans[0].style.color = "gold";
-        WorkSans[1].style.color = "gold";
-        aboutOpen.style.color = "gold";
-        twitter.style.color = "gold";
-        facebook.style.color = "gold";
-        aboutClose.style.color = "gold";
+        changeElementColors("gold");
 
     } else if (weather === "clear-night") {
 
         toggleVisibility("clear-night", "visible");
-        loading.style.color = "slateblue";
-        WorkSans[0].style.color = "slateblue";
-        WorkSans[1].style.color = "slateblue";
-        aboutOpen.style.color = "slateblue";
-        twitter.style.color = "slateblue";
-        facebook.style.color = "slateblue";
-        aboutClose.style.color = "slateblue";
+        changeElementColors("slateblue");
 
     } else if (weather === "rain") {
 
         toggleVisibility("rain", "visible");
-        laoding.style.color = "dodgerblue";
-        WorkSans[0].style.color = "dodgerblue";
-        WorkSans[1].style.color = "dodgerblue";
-        aboutOpen.style.color = "dodgerblue";
-        twitter.style.color = "dodgerblue";
-        facebook.style.color = "dodgerblue";
-        aboutClose.style.color = "dodgerblue";
+        changeElementColors("dodgerblue");
 
     } else if (weather === "snow" || weather === "sleet" || weather === "hail") {
 
         toggleVisibility("snow", "visible");
-        loading.style.color = "snow";
-        WorkSans[0].style.color = "snow";
-        WorkSans[1].style.color = "snow";
-        aboutOpen.style.color = "snow";
-        twitter.style.color = "snow";
-        facebook.style.color = "snow";
-        aboutClose.style.color = "snow";
+        changeElementColors("snow");
 
     } else if (weather === "cloudy") {
 
         toggleVisibility("cloudy", "visible");
-        loading.style.color = "gainsboro";
-        WorkSans[0].style.color = "gainsboro";
-        WorkSans[1].style.color = "gainsboro";
-        aboutOpen.style.color = "gainsboro";
-        twitter.style.color = "gainsboro";
-        facebook.style.color = "gainsboro";
-        aboutClose.style.color = "gainsboro";
+        changeElementColors("gainsboro");
 
     } else if (weather === "partly-cloudy-day") {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("partly-cloudy-day", "visible");
-        loading.style.color = "gold";
-        WorkSans[0].style.color = "gold";
-        WorkSans[1].style.color = "gold";
-        aboutOpen.style.color = "gold";
-        twitter.style.color = "gold";
-        facebook.style.color = "gold";
-        aboutClose.style.color = "gold";
+        changeElementColors("gold");
 
     } else if (weather === "partly-cloudy-night") {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("partly-cloudy-night", "visible");
-        loading.style.color = "slateblue";
-        WorkSans[0].style.color = "slateblue";
-        WorkSans[1].style.color = "slateblue";
-        aboutOpen.style.color = "slateblue";
-        twitter.style.color = "slateblue";
-        facebook.style.color = "slateblue";
-        aboutClose.style.color = "slateblue";
+        changeElementColors("slateblue");
 
     } else if (weather === "thunderstorm") {
 
         toggleVisibility("thunderstorm", "visible");
-        loading.style.color = "gold";
-        WorkSans[0].style.color = "gold";
-        WorkSans[1].style.color = "gold";
-        aboutOpen.style.color = "gold";
-        twitter.style.color = "gold";
-        facebook.style.color = "gold";
-        aboutClose.style.color = "gold";
+        changeElementColors("gold");
 
     }
 
