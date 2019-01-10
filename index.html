@@ -14,31 +14,33 @@
 
 </head>
 
-<body onload="tempus()">
+<body class="fade-able"onload="tempus()">
 
 	<div id="aboutScreen" class="steelblue">
 
-		<i id="aboutOpen" class="fas fa-question-circle"
+		<i id="aboutOpen" class="fas fa-question-circle fade-able"
 		onclick="toggleAbout()"></i>
 
-		<div id="aboutContent" class="WorkSans">
+		<div id="aboutContent" class="WorkSans fade-able">
 
 			<p id="aboutFirstParagraph">Tempus was <br> made with &#9825; in Latvia</p>
 
 			<div id="aboutSocial">
 				<p>Find me on:</p>
-				<i id="twitter" class="fab fa-twitter" onclick="twitterOpen()"></i>
-				<i id="facebook" class="fab fa-facebook" onclick="facebookOpen()"></i>
+				<i id="twitter" class="fab fa-twitter fade-able" onclick="twitterOpen()"></i>
+				<i id="facebook" class="fab fa-facebook fade-able" onclick="facebookOpen()"></i>
 			</div>
 
 		</div>
 
-		<i id="aboutClose" class="fas fa-times-circle"
+		<i id="aboutClose" class="fas fa-times-circle fade-able"
 		onclick="toggleAbout()"></i>
 
 	</div>
 
 	<div id="weatherScreen">
+
+		<i id="loading" class="fas fa-sync-alt"></i>
 
 		<div id="icons">
 
@@ -53,15 +55,16 @@
 			<i id="thunderstorm" class="fas fa-bolt icon gold"></i>
 			<i id="snow" class="fas fa-snowflake icon snow"></i>
 
+			<i id="denied" class="fas fa-sad-tear icon"></i>
+
 		</div>
 
-		<div id="temperature" class="WorkSans"
+		<div id="temperature" class="WorkSans fade-able"
 			 onclick="temperatureToggle()"></div>
-
 
 	</div>
 
-	<a id="footer" onclick="darkSkyOpen()">
+	<div id="footer" onclick="darkSkyOpen()">
 
 		Powered by Dark Sky
 
@@ -71,7 +74,7 @@
 			<path class="darkSky" fill="#444" d="M 643 216 C 631 198 620 181 610 166 590 187 561 222 537 259 502 312 482 370 482 370 L 560 346 C 560 346 519 417 499 491 480 555 482 624 482 624 L 536 599 C 536 599 512 688 510 792 508 883 526 965 535 998 714 980 853 829 855 644 856 484 739 359 643 216 Z"></path>
 		</svg>
 
-	</a>
+	</div>
 
 	<script src="js/scripts.js"></script>
 

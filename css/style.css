@@ -16,7 +16,6 @@ body {
 	font-size: 50px ;
 	left: 15px;
 	top: 15px;
-	z-index: 1;
 	color: steelblue;
 	transition: filter 250ms linear;
 }
@@ -26,7 +25,7 @@ body {
 }
 
 #aboutOpen:hover, #aboutClose:hover, #twitter:hover, #facebook:hover, #temperature:hover {
-	filter: brightness(75%);
+	filter: brightness(90%);
 	transition: filter 250ms linear;
 }
 
@@ -64,7 +63,6 @@ body {
 #icons {
 	height: 75px;
 	font-size: 200px;
-	z-index: 0;
 }
 
 .icon {
@@ -73,7 +71,17 @@ body {
 	left: 50%;
 	position: fixed;
 	transform: translateX(-50%);
-	z-index: 1;
+}
+
+#loading {
+	visibility: hidden;
+	position: fixed;
+	font-size: 50px;
+	right: 15px;
+	top: 15px;
+	color: steelblue;
+	transition: filter 250ms linear;
+	animation: spin 2000ms linear infinite
 }
 
 #locating {
@@ -119,6 +127,10 @@ body {
 	color: snow;
 }
 
+#denied {
+		color: steelblue;
+}
+
 .WorkSans {
 	font-size: 50px;
 	font-family: 'Work Sans', sans-serif;
@@ -130,7 +142,6 @@ body {
 	left: 50%;
 	position: fixed;
 	transform: translateX(-50%);
-	z-index: 1;
 	color: steelblue;
 	transition: filter 250ms linear;
 }
@@ -157,10 +168,9 @@ body {
 	color: #444;
 	position: fixed;
 	bottom: 15px;
+	left: 50%;
 	width: 275px;
-	text-decoration: none;
 	transform: translateX(-50%);
-	z-index: 1;
 	cursor: pointer;
 }
 
@@ -175,13 +185,31 @@ body {
 
 }
 
-.darkSkyNight {
-	fill: white;
+.fade-able {
+	transition: background-color 500ms linear, color 500ms linear;
 }
 
-.fade-able {
-	transition: background-color 500ms ease-in-out,
-				color 500ms ease-in-out;
+@keyframes spin {
+		from {transform: rotate(0deg);}
+		to {transform: rotate(360deg);}
+}
+
+.fadeIn {
+	animation: fadeIn 500ms linear;
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+.fadeOut {
+	animation: fadeOut 500ms linear;
+}
+
+@keyframes fadeOut {
+	from {opacity: 1;}
+	to {opacity: 0;}
 }
 
 /*media queries*/

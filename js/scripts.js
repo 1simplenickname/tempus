@@ -8,10 +8,14 @@ let WorkSans = document.getElementsByClassName("WorkSans");
 let aboutOpen = document.getElementById("aboutOpen");
 let twitter = document.getElementById("twitter");
 let facebook = document.getElementById("facebook");
+let loading = document.getElementById("loading");
 let aboutClose = document.getElementById("aboutClose");
 let temperature = document.getElementById("temperature");
 let footer = document.getElementById("footer");
 let darkSky = document.getElementsByClassName("darkSky");
+
+let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
+let url = "https://api.forecast.io/forecast/";
 
 function toggleVisibility(target, state) {
 
@@ -28,12 +32,18 @@ function toggleAbout() {
         toggleVisibility("aboutClose", "visible");
 
         if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
+
             document.getElementById(currentIcon).style.visibility = "hidden";
             toggleVisibility("cloudy", "hidden");
+
         } else if (currentIcon === "") {
+
             toggleVisibility("locating", "hidden");
+
         } else {
+
             document.getElementById(currentIcon).style.visibility = "hidden";
+
         }
 
         toggleVisibility("temperature", "hidden");
@@ -45,12 +55,18 @@ function toggleAbout() {
         toggleVisibility("aboutOpen", "visible");
 
         if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
+
             document.getElementById(currentIcon).style.visibility = "visible";
             toggleVisibility("cloudy", "visible");
+
         } else if (currentIcon === "") {
+
             toggleVisibility("locating", "visible");
+
         } else {
+
             document.getElementById(currentIcon).style.visibility = "visible";
+
         }
 
         toggleVisibility("temperature", "visible");
@@ -73,8 +89,7 @@ function darkSkyOpen() {
 
 function tempus() {
 
-    let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
-    let url = "https://api.forecast.io/forecast/";
+    toggleVisibility("loading", "visible");
 
     toggleVisibility("clear-day", "hidden");
     toggleVisibility("clear-night", "hidden");
@@ -94,11 +109,17 @@ function tempus() {
 
     if (aboutClose.style.visibility !== "visible") {
 
-        navigator.geolocation.getCurrentPosition(callDarkSky);
+        navigator.geolocation.getCurrentPosition( callDarkSky, function(error) {
 
-    } else {
+            currentIcon = "denied";
 
-        // do nothing
+            toggleVisibility("locating", "hidden");
+            toggleVisibility("loading", "hidden");
+            toggleVisibility("denied", "visible");
+
+            temperature.innerHTML = "No location";
+
+        });
 
     }
 
@@ -136,7 +157,11 @@ function tempus() {
 
             toggleVisibility("locating", "hidden");
 
-            body.classList.add("fade-able");
+            setTimeout( function() {
+
+              toggleVisibility("loading", "hidden");
+
+            }, 1000);
 
         });
 
@@ -181,6 +206,7 @@ function determineWeatherIcon(weather) {
     if (weather === "clear-day") {
 
         toggleVisibility("clear-day", "visible");
+        loading.style.color = "gold";
         WorkSans[0].style.color = "gold";
         WorkSans[1].style.color = "gold";
         aboutOpen.style.color = "gold";
@@ -191,6 +217,7 @@ function determineWeatherIcon(weather) {
     } else if (weather === "clear-night") {
 
         toggleVisibility("clear-night", "visible");
+        loading.style.color = "slateblue";
         WorkSans[0].style.color = "slateblue";
         WorkSans[1].style.color = "slateblue";
         aboutOpen.style.color = "slateblue";
@@ -201,6 +228,7 @@ function determineWeatherIcon(weather) {
     } else if (weather === "rain") {
 
         toggleVisibility("rain", "visible");
+        laoding.style.color = "dodgerblue";
         WorkSans[0].style.color = "dodgerblue";
         WorkSans[1].style.color = "dodgerblue";
         aboutOpen.style.color = "dodgerblue";
@@ -211,6 +239,7 @@ function determineWeatherIcon(weather) {
     } else if (weather === "snow" || weather === "sleet" || weather === "hail") {
 
         toggleVisibility("snow", "visible");
+        loading.style.color = "snow";
         WorkSans[0].style.color = "snow";
         WorkSans[1].style.color = "snow";
         aboutOpen.style.color = "snow";
@@ -221,6 +250,7 @@ function determineWeatherIcon(weather) {
     } else if (weather === "cloudy") {
 
         toggleVisibility("cloudy", "visible");
+        loading.style.color = "gainsboro";
         WorkSans[0].style.color = "gainsboro";
         WorkSans[1].style.color = "gainsboro";
         aboutOpen.style.color = "gainsboro";
@@ -232,6 +262,7 @@ function determineWeatherIcon(weather) {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("partly-cloudy-day", "visible");
+        loading.style.color = "gold";
         WorkSans[0].style.color = "gold";
         WorkSans[1].style.color = "gold";
         aboutOpen.style.color = "gold";
@@ -243,6 +274,7 @@ function determineWeatherIcon(weather) {
 
         toggleVisibility("cloudy", "visible");
         toggleVisibility("partly-cloudy-night", "visible");
+        loading.style.color = "slateblue";
         WorkSans[0].style.color = "slateblue";
         WorkSans[1].style.color = "slateblue";
         aboutOpen.style.color = "slateblue";
@@ -253,6 +285,7 @@ function determineWeatherIcon(weather) {
     } else if (weather === "thunderstorm") {
 
         toggleVisibility("thunderstorm", "visible");
+        loading.style.color = "gold";
         WorkSans[0].style.color = "gold";
         WorkSans[1].style.color = "gold";
         aboutOpen.style.color = "gold";
@@ -274,9 +307,9 @@ function pageHotness(temperature) {
 
         body.style.backgroundColor = "indigo";
         footer.style.color = "white";
-        darkSky[0].classList.add("darkSkyNight");
-        darkSky[1].classList.add("darkSkyNight");
-        darkSky[2].classList.add("darkSkyNight");
+        darkSky[0].style.fill = "white";
+        darkSky[1].style.fill = "white";
+        darkSky[2].style.fill = "white";
 
     } else {
 
