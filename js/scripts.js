@@ -18,9 +18,17 @@ let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
 let url = "https://api.forecast.io/forecast/";
 
 function toggleVisibility(target, state) {
+    var element = document.getElementById(target);
+    console.log('(%s) -> (%s)', target, state);
+    if (state === 'visible') {
+        element.classList.remove('hidden');
+    } else if (state === 'hidden') {
+        element.classList.add('hidden');
+    }
+}
 
-    document.getElementById(target).style.visibility = state;
-
+function isVisible(target) {
+    return ! document.getElementById(target).classList.contains('hidden');
 }
 
 function changeElementColors(color) {
@@ -116,6 +124,7 @@ function tempus() {
     temperature.classList.remove("celsius");
     temperature.classList.remove("kelvin");
 
+    toggleVisibility("denied", "hidden");
     toggleVisibility("locating", "visible");
     temperature.innerHTML = "Locating...";
 

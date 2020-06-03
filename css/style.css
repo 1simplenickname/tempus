@@ -61,16 +61,12 @@ body {
 }
 
 #icons {
-	height: 75px;
-	font-size: 200px;
+  font-size: 15em;
 }
 
 .icon {
-	visibility: hidden;
-	top: 30%;
-	left: 50%;
-	position: fixed;
-	transform: translateX(-50%);
+  font-size: inherit;
+  display: inline-block;
 }
 
 #loading {
@@ -85,7 +81,6 @@ body {
 }
 
 #locating {
-	visibility: visible;
 	color: steelblue;
 }
 
@@ -104,15 +99,15 @@ body {
 #partly-cloudy-day {
 	z-index: -1;
 	transform: translateY(-20%);
-	font-size: 150px;
 	color: gold;
+  font-size: 75%;
 }
 
 #partly-cloudy-night {
 	z-index: -1;
 	transform: translateY(-20%);
-	font-size: 150px;
 	color: slateblue;
+  font-size: 75%;
 }
 
 #rain {
@@ -132,17 +127,12 @@ body {
 }
 
 .WorkSans {
-	font-size: 50px;
 	font-family: 'Work Sans', sans-serif;
 	color: steelblue;
 }
 
 #temperature {
-	top: 60%;
-	left: 50%;
-	position: fixed;
-	transform: translateX(-50%);
-	color: steelblue;
+  font-size: 3em;
 	transition: filter 250ms linear;
 }
 
@@ -150,27 +140,13 @@ body {
 	cursor: pointer;
 }
 
-.fahreheit {
-	width: 200px;
-}
-
-.celsius {
-	width: 225px;
-}
-
-.kelvin {
-	width: 250px;
-}
-
 #footer {
-	font-size: 25px;
 	font-family: 'Lato', sans-serif;
 	color: #444;
 	position: fixed;
-	bottom: 15px;
-	left: 50%;
-	width: 275px;
-	transform: translateX(-50%);
+	bottom: 1em;
+	width: 100%;
+  text-align: center;
 	cursor: pointer;
 }
 
@@ -179,10 +155,6 @@ body {
 	width: 35px;
 	height: 35px;
 	transform: translateX(-10%) translateY(+25%);
-}
-
-.darkSky {
-
 }
 
 .fade-able {
@@ -230,10 +202,6 @@ body {
 /*iPhone 5.5" media query*/
 @media only screen and (max-width: 414px) {
 
-	#icons {
-		transform: translateY(+160%);
-	}
-
 	#aboutFirstParagraph {
 		position: fixed;
 		left: 50%;
@@ -246,19 +214,14 @@ body {
 		transform: translateX(-50%) translateY(+225%);
 	}
 
-	#temperature {
-		width: 300px;
-		transform: translateX(-50%) translateY(+100%);
-	}
+  #icons {
+    font-size: 7em;
+  }
 
 }
 
 /*iPhone 4.7" portrait media query*/
 @media only screen and (max-width: 375px) {
-
-	#icons {
-		transform: translateY(+120%);
-	}
 
 	#aboutContent {
 		font-size: 40px;
@@ -273,10 +236,6 @@ body {
 /*iPhone 4" portrait media query*/
 @media only screen and (max-width: 320px) {
 
-	#icons {
-		transform: translateY(+80%);
-	}
-
 	#aboutContent {
 		font-size: 32px;
 	}
@@ -285,4 +244,30 @@ body {
 		font-size: 29px;
 	}
 
+}
+
+#weatherScreen {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (max-height: 35em) {
+  #weatherScreen {
+    flex-direction: row;
+  }
+  #icons {
+    font-size: 7em;
+  }
+  #temperature {
+    margin-left: 1rem;
+  }
+}
+
+.hidden {
+  display: none;
 }
