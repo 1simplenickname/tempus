@@ -20,17 +20,12 @@ body {
 	transition: filter 250ms linear;
 }
 
-#aboutOpen {
-	visibility: visible;
-}
-
 #aboutOpen:hover, #aboutClose:hover, #twitter:hover, #facebook:hover, #temperature:hover {
 	filter: brightness(90%);
 	transition: filter 250ms linear;
 }
 
 #aboutContent {
-	visibility: hidden;
 	position: fixed;
 	top: 30%;
 	left: 50%;
@@ -56,10 +51,6 @@ body {
 	cursor: pointer;
 }
 
-#aboutClose {
-	visibility: hidden;
-}
-
 #icons {
   font-size: 15em;
 }
@@ -70,7 +61,6 @@ body {
 }
 
 #loading {
-	visibility: hidden;
 	position: fixed;
 	font-size: 50px;
 	right: 15px;
@@ -246,10 +236,18 @@ body {
 
 }
 
+#aboutScreen {
+  position: absolute;
+  width: 100%;
+  height; 100vh;
+  z-index: 2;
+}
+
 #weatherScreen {
+  position: absolute;
   width: 100%;
   height: 100vh;
-  position: absolute;
+  z-index: 1;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;

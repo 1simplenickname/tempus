@@ -28,7 +28,11 @@ function toggleVisibility(target, state) {
 }
 
 function isVisible(target) {
-    return ! document.getElementById(target).classList.contains('hidden');
+    var element = target;
+    if (typeof target === 'string') {
+        element = document.getElementById(target);
+    }
+    return ! element.classList.contains('hidden');
 }
 
 function changeElementColors(color) {
@@ -45,15 +49,14 @@ function changeElementColors(color) {
 
 function toggleAbout() {
 
-    if (aboutOpen.style.visibility !== "hidden") {
-
+    if (isVisible('aboutOpen')) {
         toggleVisibility("aboutOpen", "hidden");
         toggleVisibility("aboutContent", "visible");
         toggleVisibility("aboutClose", "visible");
 
         if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
 
-            document.getElementById(currentIcon).style.visibility = "hidden";
+            toggleVisibility(currentIcon, "hidden");
             toggleVisibility("cloudy", "hidden");
 
         } else if (currentIcon === "") {
@@ -62,13 +65,13 @@ function toggleAbout() {
 
         } else {
 
-            document.getElementById(currentIcon).style.visibility = "hidden";
+            toggleVisibility(currentIcon, "hidden");
 
         }
 
         toggleVisibility("temperature", "hidden");
 
-    } else if (aboutClose.style.visibility !== "hidden") {
+    } else if (isVisible(aboutClose)) {
 
         toggleVisibility("aboutClose", "hidden");
         toggleVisibility("aboutContent", "hidden");
@@ -76,7 +79,7 @@ function toggleAbout() {
 
         if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
 
-            document.getElementById(currentIcon).style.visibility = "visible";
+            toggleVisibility(currentIcon, 'visible');
             toggleVisibility("cloudy", "visible");
 
         } else if (currentIcon === "") {
@@ -85,7 +88,7 @@ function toggleAbout() {
 
         } else {
 
-            document.getElementById(currentIcon).style.visibility = "visible";
+            toggleVisibility(currentIcon, 'visible');
 
         }
 
