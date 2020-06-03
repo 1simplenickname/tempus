@@ -138,6 +138,7 @@ body {
 	width: 100%;
   text-align: center;
 	cursor: pointer;
+  z-index: 3;
 }
 
 #footerLogo {
@@ -174,73 +175,18 @@ body {
 	to {opacity: 0;}
 }
 
-/*media queries*/
-/*iPad landscape media query*/
-@media only screen and (max-width: 1248px) {
 
-    #facebookFiller {
-        font-size: 44px;
-    }
-
-}
-
-/*iPad portrait media query*/
-@media only screen and (max-width: 768px) {
-
-}
-
-/*iPhone 5.5" media query*/
-@media only screen and (max-width: 414px) {
-
-	#aboutFirstParagraph {
-		position: fixed;
-		left: 50%;
-		transform: translateX(-50%) translateY(-25%);
-	}
-
-	#aboutSocial {
-		position: fixed;
-		left: 50%;
-		transform: translateX(-50%) translateY(+225%);
-	}
-
-  #icons {
-    font-size: 7em;
-  }
-
-}
-
-/*iPhone 4.7" portrait media query*/
-@media only screen and (max-width: 375px) {
-
-	#aboutContent {
-		font-size: 40px;
-	}
-
-	#facebookFiller {
-		font-size: 35px;
-	}
-
-}
-
-/*iPhone 4" portrait media query*/
-@media only screen and (max-width: 320px) {
-
-	#aboutContent {
-		font-size: 32px;
-	}
-
-	#facebookFiller {
-		font-size: 29px;
-	}
-
-}
-
-#aboutScreen {
+.aboutScreen {
   position: absolute;
   width: 100%;
-  height; 100vh;
+  height: 100vh;
   z-index: 2;
+  background-color: inherit;
+
+  transition: opacity 500ms linear;
+  opacity: 1.0;
+
+  font-size: 2em;
 }
 
 #weatherScreen {
@@ -252,6 +198,15 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 30em) {
+  #icons {
+    font-size: 7em;
+  }
+  .aboutScreen {
+    font-size: 1.5em;
+  }
 }
 
 @media screen and (min-aspect-ratio: 1/1) and (max-height: 35em) {
@@ -268,4 +223,7 @@ body {
 
 .hidden {
   display: none;
+}
+.hidden-opacity {
+  opacity: 0.0;
 }

@@ -5,7 +5,7 @@ let currentIcon = "";
 
 let body = document.body;
 let WorkSans = document.getElementsByClassName("WorkSans");
-let aboutOpen = document.getElementById("aboutOpen");
+let aboutScreen = document.getElementById("aboutScreen");
 let twitter = document.getElementById("twitter");
 let facebook = document.getElementById("facebook");
 let loading = document.getElementById("loading");
@@ -16,6 +16,8 @@ let darkSky = document.getElementsByClassName("darkSky");
 
 let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
 let url = "https://api.forecast.io/forecast/";
+
+let isAboutVisible = false;
 
 function toggleVisibility(target, state) {
     var element = document.getElementById(target);
@@ -48,54 +50,19 @@ function changeElementColors(color) {
 }
 
 function toggleAbout() {
-
-    if (isVisible('aboutOpen')) {
-        toggleVisibility("aboutOpen", "hidden");
-        toggleVisibility("aboutContent", "visible");
-        toggleVisibility("aboutClose", "visible");
-
-        if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
-
-            toggleVisibility(currentIcon, "hidden");
-            toggleVisibility("cloudy", "hidden");
-
-        } else if (currentIcon === "") {
-
-            toggleVisibility("locating", "hidden");
-
-        } else {
-
-            toggleVisibility(currentIcon, "hidden");
-
-        }
-
-        toggleVisibility("temperature", "hidden");
-
-    } else if (isVisible(aboutClose)) {
-
-        toggleVisibility("aboutClose", "hidden");
-        toggleVisibility("aboutContent", "hidden");
-        toggleVisibility("aboutOpen", "visible");
-
-        if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
-
-            toggleVisibility(currentIcon, 'visible');
-            toggleVisibility("cloudy", "visible");
-
-        } else if (currentIcon === "") {
-
-            toggleVisibility("locating", "visible");
-
-        } else {
-
-            toggleVisibility(currentIcon, 'visible');
-
-        }
-
-        toggleVisibility("temperature", "visible");
-
+    if (isAboutVisible) {
+        aboutScreen.classList.add('hidden-opacity');
+        aboutScreen.addEventListener('transitionend', function listener() {
+            isAboutVisible = false;
+            aboutScreen.removeEventListener('transitionend', listener);
+        });
+    } else {
+        aboutScreen.classList.remove('hidden-opacity');
+        aboutScreen.addEventListener('transitionend', function listener() {
+            isAboutVisible = true;
+            aboutScreen.removeEventListener('transitionend', listener);
+        });
     }
-
 }
 
 function twitterOpen() {
