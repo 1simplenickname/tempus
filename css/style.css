@@ -20,12 +20,17 @@ body {
 	transition: filter 250ms linear;
 }
 
+#aboutOpen {
+	visibility: visible;
+}
+
 #aboutOpen:hover, #aboutClose:hover, #twitter:hover, #facebook:hover, #temperature:hover {
 	filter: brightness(90%);
 	transition: filter 250ms linear;
 }
 
 #aboutContent {
+	visibility: hidden;
 	position: fixed;
 	top: 30%;
 	left: 50%;
@@ -51,16 +56,25 @@ body {
 	cursor: pointer;
 }
 
+#aboutClose {
+	visibility: hidden;
+}
+
 #icons {
-  font-size: 15em;
+	height: 75px;
+	font-size: 200px;
 }
 
 .icon {
-  font-size: inherit;
-  display: inline-block;
+	visibility: hidden;
+	top: 30%;
+	left: 50%;
+	position: fixed;
+	transform: translateX(-50%);
 }
 
 #loading {
+	visibility: hidden;
 	position: fixed;
 	font-size: 50px;
 	right: 15px;
@@ -71,6 +85,7 @@ body {
 }
 
 #locating {
+	visibility: visible;
 	color: steelblue;
 }
 
@@ -89,15 +104,15 @@ body {
 #partly-cloudy-day {
 	z-index: -1;
 	transform: translateY(-20%);
+	font-size: 150px;
 	color: gold;
-  font-size: 75%;
 }
 
 #partly-cloudy-night {
 	z-index: -1;
 	transform: translateY(-20%);
+	font-size: 150px;
 	color: slateblue;
-  font-size: 75%;
 }
 
 #rain {
@@ -117,12 +132,17 @@ body {
 }
 
 .WorkSans {
+	font-size: 50px;
 	font-family: 'Work Sans', sans-serif;
 	color: steelblue;
 }
 
 #temperature {
-  font-size: 3em;
+	top: 60%;
+	left: 50%;
+	position: fixed;
+	transform: translateX(-50%);
+	color: steelblue;
 	transition: filter 250ms linear;
 }
 
@@ -130,15 +150,28 @@ body {
 	cursor: pointer;
 }
 
+.fahreheit {
+	width: 200px;
+}
+
+.celsius {
+	width: 225px;
+}
+
+.kelvin {
+	width: 250px;
+}
+
 #footer {
+	font-size: 25px;
 	font-family: 'Lato', sans-serif;
 	color: #444;
 	position: fixed;
-	bottom: 1em;
-	width: 100%;
-  text-align: center;
+	bottom: 15px;
+	left: 50%;
+	width: 275px;
+	transform: translateX(-50%);
 	cursor: pointer;
-  z-index: 3;
 }
 
 #footerLogo {
@@ -146,6 +179,10 @@ body {
 	width: 35px;
 	height: 35px;
 	transform: translateX(-10%) translateY(+25%);
+}
+
+.darkSky {
+
 }
 
 .fade-able {
@@ -175,55 +212,77 @@ body {
 	to {opacity: 0;}
 }
 
+/*media queries*/
+/*iPad landscape media query*/
+@media only screen and (max-width: 1248px) {
 
-.aboutScreen {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  z-index: 2;
-  background-color: inherit;
+    #facebookFiller {
+        font-size: 44px;
+    }
 
-  transition: opacity 500ms linear;
-  opacity: 1.0;
-
-  font-size: 2em;
 }
 
-#weatherScreen {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  z-index: 1;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
+/*iPad portrait media query*/
+@media only screen and (max-width: 768px) {
+
 }
 
-@media only screen and (max-width: 30em) {
-  #icons {
-    font-size: 7em;
-  }
-  .aboutScreen {
-    font-size: 1.5em;
-  }
+/*iPhone 5.5" media query*/
+@media only screen and (max-width: 414px) {
+
+	#icons {
+		transform: translateY(+160%);
+	}
+
+	#aboutFirstParagraph {
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%) translateY(-25%);
+	}
+
+	#aboutSocial {
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%) translateY(+225%);
+	}
+
+	#temperature {
+		width: 300px;
+		transform: translateX(-50%) translateY(+100%);
+	}
+
 }
 
-@media screen and (min-aspect-ratio: 1/1) and (max-height: 35em) {
-  #weatherScreen {
-    flex-direction: row;
-  }
-  #icons {
-    font-size: 7em;
-  }
-  #temperature {
-    margin-left: 1rem;
-  }
+/*iPhone 4.7" portrait media query*/
+@media only screen and (max-width: 375px) {
+
+	#icons {
+		transform: translateY(+120%);
+	}
+
+	#aboutContent {
+		font-size: 40px;
+	}
+
+	#facebookFiller {
+		font-size: 35px;
+	}
+
 }
 
-.hidden {
-  display: none;
-}
-.hidden-opacity {
-  opacity: 0.0;
+/*iPhone 4" portrait media query*/
+@media only screen and (max-width: 320px) {
+
+	#icons {
+		transform: translateY(+80%);
+	}
+
+	#aboutContent {
+		font-size: 32px;
+	}
+
+	#facebookFiller {
+		font-size: 29px;
+	}
+
 }
