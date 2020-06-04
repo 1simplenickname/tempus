@@ -5,7 +5,7 @@ let currentIcon = "";
 
 let body = document.body;
 let WorkSans = document.getElementsByClassName("WorkSans");
-let aboutOpen = document.getElementById("aboutOpen");
+let aboutScreen = document.getElementById("aboutScreen");
 let twitter = document.getElementById("twitter");
 let facebook = document.getElementById("facebook");
 let loading = document.getElementById("loading");
@@ -17,10 +17,24 @@ let darkSky = document.getElementsByClassName("darkSky");
 let apiKey = "7d4a8b76ab3a113b2bb79af067b79eeb";
 let url = "https://api.forecast.io/forecast/";
 
+let isAboutVisible = false;
+
 function toggleVisibility(target, state) {
+    var element = document.getElementById(target);
+    console.log('(%s) -> (%s)', target, state);
+    if (state === 'visible') {
+        element.classList.remove('hidden');
+    } else if (state === 'hidden') {
+        element.classList.add('hidden');
+    }
+}
 
-    document.getElementById(target).style.visibility = state;
-
+function isVisible(target) {
+    var element = target;
+    if (typeof target === 'string') {
+        element = document.getElementById(target);
+    }
+    return ! element.classList.contains('hidden');
 }
 
 function changeElementColors(color) {
@@ -36,55 +50,19 @@ function changeElementColors(color) {
 }
 
 function toggleAbout() {
-
-    if (aboutOpen.style.visibility !== "hidden") {
-
-        toggleVisibility("aboutOpen", "hidden");
-        toggleVisibility("aboutContent", "visible");
-        toggleVisibility("aboutClose", "visible");
-
-        if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
-
-            document.getElementById(currentIcon).style.visibility = "hidden";
-            toggleVisibility("cloudy", "hidden");
-
-        } else if (currentIcon === "") {
-
-            toggleVisibility("locating", "hidden");
-
-        } else {
-
-            document.getElementById(currentIcon).style.visibility = "hidden";
-
-        }
-
-        toggleVisibility("temperature", "hidden");
-
-    } else if (aboutClose.style.visibility !== "hidden") {
-
-        toggleVisibility("aboutClose", "hidden");
-        toggleVisibility("aboutContent", "hidden");
-        toggleVisibility("aboutOpen", "visible");
-
-        if (currentIcon === "partly-cloudy-day" || currentIcon === "partly-cloudy-night") {
-
-            document.getElementById(currentIcon).style.visibility = "visible";
-            toggleVisibility("cloudy", "visible");
-
-        } else if (currentIcon === "") {
-
-            toggleVisibility("locating", "visible");
-
-        } else {
-
-            document.getElementById(currentIcon).style.visibility = "visible";
-
-        }
-
-        toggleVisibility("temperature", "visible");
-
+    if (isAboutVisible) {
+        aboutScreen.classList.add('hidden-opacity');
+        aboutScreen.addEventListener('transitionend', function listener() {
+            isAboutVisible = false;
+            aboutScreen.removeEventListener('transitionend', listener);
+        });
+    } else {
+        aboutScreen.classList.remove('hidden-opacity');
+        aboutScreen.addEventListener('transitionend', function listener() {
+            isAboutVisible = true;
+            aboutScreen.removeEventListener('transitionend', listener);
+        });
     }
-
 }
 
 function twitterOpen() {
@@ -116,6 +94,7 @@ function tempus() {
     temperature.classList.remove("celsius");
     temperature.classList.remove("kelvin");
 
+    toggleVisibility("denied", "hidden");
     toggleVisibility("locating", "visible");
     temperature.innerHTML = "Locating...";
 
